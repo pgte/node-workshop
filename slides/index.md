@@ -337,7 +337,7 @@ var specialNumber = {
 (also, object literals)
 
 
-## Closures
+## Function closures
 
 In JS, a function creates a new scope, a scope has a parent scope, and can also access all the arguments, local variables and functions in the parent scopes.
 
@@ -358,7 +358,6 @@ function remember() {
 
 ```javascript
 > var r = remember();
-undefined
 > r.count()
 1
 > r.count()
@@ -371,4 +370,47 @@ undefined
 5
 > a.count()
 7
+```
+
+
+
+# 1.3 Sync and Async
+
+
+Read the content of a file synchronously
+
+```javascript
+// read-file-sync.js
+
+var fs = require('fs');
+
+var file = fs.readFileSync(__filename, {encoding: 'utf8'});
+
+console.log(file);
+```
+
+(also, encodings and `console.log`);
+
+
+Read the content of a file asynchronously
+
+```javascript
+// read-file-async.js
+
+var fs = require('fs');
+
+console.log('going to read a file')
+
+var file = fs.readFile(__filename, {encoding: 'utf8'}, finishedReading);
+
+function finishedReading(err, file) {
+  if (err) {
+    throw err;
+  }
+
+  console.log('got file contents\n---------');
+  console.log(file);
+}
+
+console.log('have started reading a file')
 ```

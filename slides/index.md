@@ -427,3 +427,96 @@ fs.readFile(
 console.log('have started reading a file');
 ```
 
+
+Callback pattern
+
+* callback function as last argument
+* callback signaure `(err[, result])`
+
+
+## Exercise 1.1
+
+### file-size.js
+
+* a command-line script named `file-size.js`
+* that accepts a file path as first argument
+* checks if file exists
+* if file exists, prints file size in bytes
+* use only async functions
+
+(consult the [Node API online docs](http://iojs.org/api))
+
+
+[one solution for 1.1](code/01/file-size.js)
+
+```js
+var fs = require('fs');
+
+var path = process.argv[2];
+
+fs.exists(path, function(exists) {
+  if (exists) {
+    fs.stat(path, function(err, stat) {
+      if (err) {
+        throw err;
+      }
+      console.log(stat.size);
+    });
+  }
+});
+```
+
+
+
+# 1.4 Making HTTP client requests
+
+
+## Exercise 1.2
+
+### get-headers.js
+
+* Given a URL as a command-line argument,
+* make a client HTTP GET request to that URL
+* print the response headers
+* this time, make this script an executable
+
+
+[one solution for 1.2](code/01/get-headers.js)
+
+```js
+#!/usr/bin/env node
+var http = require('http');
+
+var url = process.argv[2];
+if (! url) {
+  throw new Error('Need an URL');
+}
+
+http.get(url, function(res) {
+  console.log(res.headers);
+});
+```
+
+
+##Exercise 1.3
+
+### get.js
+
+* same thing as before, but print the response body instead
+
+
+[one solution for 1.3](code/01/get.js)
+
+```js
+#!/usr/bin/env node
+var http = require('http');
+
+var url = process.argv[2];
+if (! url) {
+  throw new Error('Need an URL');
+}
+
+http.get(url, function(res) {
+  res.pipe(process.stdout);
+});
+```

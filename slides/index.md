@@ -298,3 +298,77 @@ function multiply() {
 
 multiply(1,2,3,4,5); // 120
 ```
+
+(Also, you can apply a function).
+
+
+### You can call a function several ways
+
+Unscoped call:
+
+```javascript
+multiply(1,2,3,4);
+```
+
+
+Scoped call:
+
+```javascript
+[1,2,3].map(multiply);
+```
+
+
+Another example:
+
+```javascript
+var specialNumber = {
+  value: 10,
+  multiply: function(n) {
+    return this.value * n;
+  }
+};
+
+> specialNumber.value
+10
+> specialNumber.multiply(2)
+20
+```
+
+(also, object literals)
+
+
+## Closures
+
+In JS, a function creates a new scope, a scope has a parent scope, and can also access all the arguments, local variables and functions in the parent scopes.
+
+
+```javascript
+var countBy = 1;
+
+function remember() {
+  var counter = 0;
+  return {
+    count: function() {
+      counter += countBy;
+      return counter;
+    }
+  };
+}
+```
+
+```javascript
+> var r = remember();
+undefined
+> r.count()
+1
+> r.count()
+2
+> r.count()
+3
+> countBy = 2
+2
+> a.count()
+5
+> a.count()
+7
+```

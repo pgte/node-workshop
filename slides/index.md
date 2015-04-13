@@ -96,7 +96,7 @@ Assignment TBD
 An overview of Node.js, blocking vs. non-blocking code, reading files, issuing requests.
 
 
-# Command-line node
+# 1.1 Command-line node
 
 
 ## Node Version
@@ -131,5 +131,133 @@ $ node
 > 
 > add(a, b);
 > 3
+```
+
+
+## Command-line execution
+
+```js
+$ node -e "console.log('Hello World\!')"
+Hello World!
+```
+
+
+## Stdin execution
+
+```js
+$ echo "console.log('Hello World\!')" | node
+Hello World!
+```
+
+
+## File execution
+
+```bash
+$ node code/01/hello-world.js
+Hello World!
+```
+
+
+
+# 1.2 First, some JavaScript
+
+
+## Variables
+
+```js
+a = 1;
+var b = 1;
+```
+
+
+## Types
+
+* Booleans
+* Numbers
+* Strings
+* Objects
+  * Object objects
+  * Arrays
+* Functions
+
+
+```js
+> typeof false === 'boolean';
+> typeof 'a' === 'string';
+> typeof 1 === 'number';
+> 1 === 1;
+> 'a' === 'a';
+> typeof {a:1} === 'object';
+> {a:1} !== {a:1}
+```
+
+
+## Equality == LOL.js
+
+```js
+> [] == '' == 0;
+> [] == false;
+> [1] == true;
+```
+
+
+## Functions
+
+
+You can store a function in a variable:
+
+```
+> var a = function(first, second) { return first + second; };
+> a(2, 3);
+5
+```
+
+
+You can name a function:
+
+```
+function sum(first, second) { return first + second; };
+sum(2, 3);
+// 5
+```
+
+
+You can pass a function as an argument of a call:
+
+```javascript
+function sum(first, second) { return first + second; };
+var numbers = [3,6,2,4,6,7];
+numbers.reduce(sum, 0);
+// 28
+```
+
+```javascript
+function multiply(first, second) { return first * second; };
+numbers.reduce(multiply, 1);
+// 6048
+```
+
+
+You can pass a function inline:
+
+```javascript
+numbers.filter(function(n) {
+  return n%2 == 0;
+});
+// [ 6, 2, 4, 6 ]
+```
+
+
+You can return a function:
+
+```javascript
+function multiplyBy(n1) {
+  return function(n2) {
+    return n1 * n2;
+  }
+}
+
+numbers.map(multiplyBy(10));
+// [ 30, 60, 20, 40, 60, 70 ]
 ```
 

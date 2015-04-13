@@ -34,12 +34,12 @@ Have latest Node.js or IO.js installed
 
 
 
-##Syllabus
+#Syllabus
 
 
 ## Level 1
 
-An overview of Node.js, blocking vs. non-blocking code, reading files, issuing requests
+An overview of Node.js, JavaScript, blocking vs. non-blocking code, reading files, issuing requests
 
 
 ##Level 2
@@ -94,6 +94,7 @@ Assignment TBD
 # Level 1
 
 An overview of Node.js, blocking vs. non-blocking code, reading files, issuing requests.
+
 
 
 # 1.1 Command-line node
@@ -261,3 +262,39 @@ numbers.map(multiplyBy(10));
 // [ 30, 60, 20, 40, 60, 70 ]
 ```
 
+
+You can enrich a function:
+
+```javascript
+function multiply (n1, n2) {
+  return n1 * n2;
+};
+
+multiply.by = function(n1) {
+  return function(n2) {
+    return multiply(n1, n2);
+  };
+};
+
+[2,3,4].map(multiply.by(2));
+// [ 4, 6, 8 ]
+```
+
+
+A function can accept a variable number of arguments:
+
+```javascript
+function multiply() {
+  var args = Array.prototype.slice.call(arguments);
+  var result = args.shift() * args.shift();
+
+  if (args.length) {
+    args.unshift(result);
+    result = multiply.apply(null, args);
+  }
+
+  return result;
+}
+
+multiply(1,2,3,4,5); // 120
+```

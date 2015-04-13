@@ -4,9 +4,16 @@
 $ whoami
 {
   "name": "Pedro Teixeira",
+  "programming since": 1985,
+  "profesh programming since": 1997,
   "job": "Partner and Director at YLD! (http://yld.io)",
-  "github": "pgte",
-  "twitter": "pgte",
+  "lives at": "Funchal",
+  "works at": ["Home", "London", "Lisbon", "Internets"],
+  "maker of": ["Internet", "some awful music"],
+  "github": "@pgte",
+  "twitter": "@pgte",
+  "founder and co-organizer of", ["LXJS (lxjs.org)"],
+  "author of", ["http://nodetuts.com"],
   "published books about node": Infinity,
   "published modules": Number.MAX_VALUE,
   "using node since": "v0.1 (early 2010)",
@@ -520,3 +527,61 @@ http.get(url, function(res) {
   res.pipe(process.stdout);
 });
 ```
+
+
+##Exercise 1.4
+
+### post.js
+
+* same as before, but
+* do a POST request
+* pass in a JSON body (from the command line)
+* say the content type and accept headers is JSON
+* when the response comes, print status code, headers and response body
+
+
+[solution](code/01/post.js)
+
+abc
+
+```javascript
+#!/usr/bin/env node
+
+var http = require('http');
+var URL = require('url');
+
+var url = process.argv[2];
+if (! url) {
+  throw new Error('Need an URL');
+}
+url = URL.parse(url);
+
+var body = process.argv[3];
+if (! body) {
+  throw new Error('Need body');
+}
+
+body = JSON.parse(body);
+
+var options = {
+  host: url.hostname,
+  protocol: url.protocol,
+  port: url.port,
+  path: url.path,
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json',
+    'accept': 'application/json'
+  }
+}
+
+var req = http.request(options, function(res) {
+  console.log('status code:', res.statusCode);
+  console.log('headers:', res.headers);
+  res.pipe(process.stdout);
+});
+
+req.write(JSON.stringify(body));
+req.end();
+```
+

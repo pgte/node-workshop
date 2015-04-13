@@ -1,9 +1,16 @@
 #Hello
 
-```javascript
-console.log('abc');
-function abc() {
-    
+```js
+$ whoami
+{
+  "name": "Pedro Teixeira",
+  "job": "Partner and Director at YLD! (http://yld.io)",
+  "github": "pgte",
+  "twitter": "pgte",
+  "published books about node": Infinity,
+  "published modules": Number.MAX_VALUE,
+  "using node since": "v0.1 (early 2010)",
+  "profesh using node since": "v0.2 (2011)"
 }
 ```
 
@@ -412,7 +419,7 @@ var fs = require('fs');
 
 console.log('going to read a file')
 
-var file = fs.readFile(
+fs.readFile(
   __filename,
   {encoding: 'utf8'},
   finishedReading);

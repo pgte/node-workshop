@@ -13,7 +13,7 @@ var fs = require('fs');
 
 console.log('going to read a file')
 
-var file = fs.readFile(
+fs.readFile(
   __filename,
   {encoding: 'utf8'},
   finishedReading);

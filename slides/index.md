@@ -1,3 +1,6 @@
+https://pgte.github.io/node-workshop
+
+
 #Hello
 
 ```js
@@ -35,7 +38,7 @@ To learn about how to solve common programming problems and create back-end serv
 
 ##Short description
 
-Learn about JavaScript and asynchronous programming, flow control, event emitters and streams — master the basic patterns so that you can use Node.js and some surrounding libraries to solve real real problems, create useful APIs and offer real-time services.
+Learn about JavaScript and asynchronous programming, flow control, event emitters and streams — master the basic patterns so that you can use Node.js and some surrounding libraries to solve real problems, create useful APIs and offer real-time services.
 
 
 ##Who should attend

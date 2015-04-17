@@ -4,23 +4,25 @@
 $ whoami
 {
   "name": "Pedro Teixeira",
-  "programming since": 1985,
-  "profesh programming since": 1997,
-  "job": "Partner and Director at YLD! (http://yld.io)",
-  "lives at": "Funchal",
-  "works at": ["Home", "London", "Lisbon", "Internets"],
-  "maker of": ["Internet", "some awful music"],
   "github": "@pgte",
   "twitter": "@pgte",
-  "founder and co-organizer of", ["LXJS (lxjs.org)"],
-  "author of", ["http://nodetuts.com"],
-  "published books about node": Infinity,
-  "published modules": Number.MAX_VALUE,
-  "using node since": "v0.1 (early 2010)",
-  "profesh using node since": "v0.2 (2011)"
+  "programming since": 1985,
+  "profesh programming since": 1997,
+  "using node since": "v0.1 (late 2009)",
+  "profesh using node since": "v0.2 (2011)",
+  "lives at": "Funchal",
+  "job": "Partner and Director at YLD! (http://yld.io)",
+  "works at": ["Home", "London", "Lisbon", "Internets"],
+  "creator of", ["Node Tuts", "LXJS"],
+  "published books about node": 10,
+  "published NPM modules": 71
 }
 ```
 
+
+# Node Patterns Books
+
+![Node Patterns Books](images/node-patterns.png)
 
 
 #About this workshop

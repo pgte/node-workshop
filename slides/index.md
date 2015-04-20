@@ -27,6 +27,17 @@ $ whoami
 
 ![Node Patterns Books](images/node-patterns.png)
 
+http://nodepatternsbooks.com
+
+
+## whoareyou
+
+```
+$ whoareyou
+_
+```
+
+
 
 #About this workshop
 

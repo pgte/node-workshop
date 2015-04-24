@@ -109,6 +109,17 @@ Streams: Reading, writing, piping, solving backpressure
 
 Assignment TBD
 
+Subject: Node Streams
+
+Evaluation:
+
+* Good use of modularity and other node values: 25%
+* Completeness (you did all the parts asked): 25%
+* Correctness (it runs ok): 25%
+* Originality (you can debate, but don't copy): 25%
+
+50% of final score
+
 
 ##Level 6
 
@@ -132,4 +143,12 @@ Real-time using Socket.io
 
 Assignment TBD
 
+Evaluation:
+
+* Good use of modularity and other node values: 25%
+* Completeness (you did all the parts asked): 25%
+* Correctness (it runs ok): 25%
+* Originality (debate, but don't copy): 25%
+
+50% of final score
 

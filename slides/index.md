@@ -70,52 +70,65 @@ Have a text editor installed
 
 ## Level 1
 
+### April 20th
+
 An overview of Node.js, JavaScript, blocking vs. non-blocking code, reading files, issuing requests
 
 
 ##Level 2
+
+### April 22nd
+
 Exporting, npm installing, dependencies, and semantic versioning
 
 
 ##Level 3
+
+### April 24th
+
 Using the Async module to control asynchronous flow
 
 
 ##Level 4
+
+### April 27th
+
 Event emitters, event requests, event listening
 
 
 ##Level 5
+
+### April 29th
+
 Streams: Reading, writing, piping, solving backpressure
 
 
 ##1st Evaluation Moment
+
+### April 30th
 
 Assignment TBD
 
 
 ##Level 6
 
-Command-line
+### May 4th
 
-
-##Level 7
-TCP server
+TCP and HTTP servers
 
 
 ##Level 8
-HTTP Servers
 
+### May 7th
 
-##Level 9
 Creating an API Server using Express
-
-
-##Level 10
 Real-time using Socket.io
 
 
 ##2nd and last evaluation moment
 
+### May 11th
+
 Assignment TBD
+
 

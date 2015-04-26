@@ -4,11 +4,9 @@ var fs = require('fs');
 
 function get(url) {
   return function(cb) {
-    var req = http.get(url, function(res) {
+    http.get(url, function(res) {
       cb(null, res.headers);
-    });
-
-    req.once('error', cb);
+    }).once('error', cb);
   }
 }
 
@@ -19,6 +17,9 @@ module.exports = function(url, path, cb) {
       function(headers, cb) {
         cb(null, JSON.stringify(headers));
       },
-      fs.writeFile.bind(fs, path)
+      function(headers, cb) {
+        fs.writeFile(path, headers, cb);
+      }
+      // fs.writeFile.bind(fs, path)
     ], cb);
 };

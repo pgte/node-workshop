@@ -1,7 +1,7 @@
 var async = require('async');
 var fs = require('fs');
 
-module.exports = function(path, cb) {
+module.exports = function op(path, cb) {
   var file;
 
   async.series([

@@ -33,8 +33,6 @@ var stream =
     pipe(parse)
     ;
 
-module.exports = stream;
-
 stream.on('data', function(d) {
   console.log(d);
 });

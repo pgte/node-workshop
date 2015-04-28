@@ -25,8 +25,8 @@ req.once('response', function(res) {
     console.log('  res ended');
   });
 
-  res.on('data', function() {
-    console.log('  res data');
+  res.on('data', function(data) {
+    console.log('  res data', data);
   });
 });
 

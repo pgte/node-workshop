@@ -72,8 +72,20 @@ $ npm install through2
 ### Modularize
 
 > Isolate this uppercasing transform stream as a reusable module.
+> 
+> This module should export a function that returns one of these streams.
 
 File: `uppercase.js`
+
+
+Here is an example of how your new module should be used:
+
+```js
+var Uppercase = require('./uppercase');
+
+// create stream
+var uppercase = Uppercase();
+```
 
 
 
@@ -83,7 +95,7 @@ File: `uppercase.js`
 
 > Instead of transforming every line as in the previous example, convert even-numbered lines to upper-case and odd-numbered lines to lower-case. Consider the first line to be odd-numbered.
 > 
-> Do this by using the `uppercase.js` module
+> Do this by using the `uppercase.js` module you build on the last exercise.
 
 File name: `lines.js`
 

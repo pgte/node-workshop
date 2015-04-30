@@ -6,8 +6,8 @@ var through2 = require('through2');
 
 var source = fs.createReadStream(join(__dirname, 'registry.json.gz'));
 
-var removeComma = through2(function(chunk, encoding, callback) {
-  chunk = chunk.toString().trim();
+var removeComma = through2.obj(function(chunk, encoding, callback) {
+  chunk = chunk.trim();
   if (chunk[chunk.length - 1] == ',') {
     chunk = chunk.slice(0, chunk.length - 1);
   }
@@ -16,13 +16,14 @@ var removeComma = through2(function(chunk, encoding, callback) {
 });
 
 var parse = through2.obj(function(chunk, encoding, callback) {
-  chunk = chunk.toString();
+  var err;
   try {
     this.push(JSON.parse(chunk));
-  } catch(err) {
-    parse.emit('error', err);
+  } catch(_err) {
+    err = _er;
   }
-  callback();
+
+  callback(err);
 });
 
 var stream =
@@ -34,5 +35,6 @@ var stream =
     ;
 
 stream.on('data', function(d) {
-  console.log(d);
+  console.log('%j', d);
+  console.log('----');
 });

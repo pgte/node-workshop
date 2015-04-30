@@ -6,6 +6,8 @@ var through2 = require('through2');
 
 var source = fs.createReadStream(join(__dirname, 'registry.json.gz'));
 
+var matcher = RegExp(process.argv[2] || 'pedro', 'i');
+
 var removeComma = through2(function(chunk, encoding, callback) {
   chunk = chunk.toString().trim();
   if (chunk[chunk.length - 1] == ',') {
@@ -26,10 +28,12 @@ var parse = through2.obj(function(chunk, encoding, callback) {
 });
 
 var filter = through2.obj(function(record, encoding, callback) {
-  if (record.doc.maintainers && record.doc.maintainers.some(function(maintainer) {
-    var name = maintainer = maintainer.name || maintainer;
-    return maintainer && maintainer.match(/pedro/i);
-  })) {
+  if (record.doc.maintainers &&
+      record.doc.maintainers.some(function(maintainer) {
+        var name = maintainer = maintainer.name || maintainer;
+        return maintainer && matcher.test(maintainer);
+      }))
+  {
     this.push(record);
   };
   callback();
@@ -45,5 +49,5 @@ var stream =
     ;
 
 stream.on('data', function(d) {
-  console.log('%s (%j)', d.doc.name, d.doc.maintainers);
+  console.log('- %s (%j)', d.doc.name, d.doc.maintainers);
 });

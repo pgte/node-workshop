@@ -94,8 +94,6 @@ var uppercase = Uppercase();
 ### Lines
 
 > Instead of transforming every line as in the previous example, convert even-numbered lines to upper-case and odd-numbered lines to lower-case. Consider the first line to be odd-numbered.
-> 
-> Do this by using the `uppercase.js` module you build on the last exercise.
 
 File name: `lines.js`
 

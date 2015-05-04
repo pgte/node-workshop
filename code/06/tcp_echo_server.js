@@ -4,7 +4,7 @@ var server = net.createServer();
 
 server.on('connection', function(conn) {
   conn.pipe(conn)
-    // .pipe(process.stdout);
+    .pipe(process.stdout);
 });
 
 server.listen(8001, function() {

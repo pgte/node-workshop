@@ -4,13 +4,15 @@ var through = require('through2');
 var server = net.createServer();
 
 var throughOptions = {
-  encoding: 'utf8',
   decodeStrings: false
 };
 
 function uppercasify(chunk, encoding, callback) {
-  this.push(chunk.toUpperCase());
-  callback();
+  var self = this;
+  setTimeout(function() {
+    self.push(chunk.toUpperCase());
+    callback();
+  }, 1e3);
 }
 
 server.on('connection', function(conn) {
@@ -19,7 +21,11 @@ server.on('connection', function(conn) {
 
   var uppercasing = through(throughOptions, uppercasify);
 
-  conn.pipe(uppercasing).pipe(conn);
+  conn.
+    pipe(uppercasing).
+    pipe(conn);
+
+  uppercasing.pipe(process.stdout);
 });
 
 server.listen(8001, function() {

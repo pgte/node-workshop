@@ -4,6 +4,7 @@ var server = http.createServer();
 
 server.on('request', function(req, res) {
   res.write('Hello there!');
+  res.write('Hello there!');
   res.end();
 });
 
